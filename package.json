@@ -20,7 +20,10 @@
     "pretest:e2e:run": "npm run build",
     "test:e2e:run": "cross-env PORT=8811 start-server-and-test start:mocks http://localhost:8811 \"npx cypress run\"",
     "typecheck": "tsc && tsc -p cypress",
-    "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run"
+    "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run",
+    "icons": "npx @svgr/cli --out-dir app/components/icons -- app/icons",
+    "icons:watch": "npm-watch icons",
+    "dev:svg": "run-s icons icons:watch"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -28,6 +31,15 @@
     "/build",
     "/public/build"
   ],
+  "watch": {
+    "icons": {
+      "patterns": [
+        "icons"
+      ],
+      "extensions": "svg",
+      "quiet": false
+    }
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.6.0",
     "@emotion/react": "^11.10.8",
@@ -50,6 +62,10 @@
     "@faker-js/faker": "^7.6.0",
     "@remix-run/dev": "^1.15.0",
     "@remix-run/eslint-config": "^1.15.0",
+    "@svgr/cli": "^7.0.0",
+    "@svgr/plugin-jsx": "^7.0.0",
+    "@svgr/plugin-prettier": "^7.0.0",
+    "@svgr/plugin-svgo": "^7.0.0",
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -73,6 +89,7 @@
     "happy-dom": "^9.8.0",
     "msw": "^1.2.1",
     "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
     "postcss": "^8.4.22",
     "prettier": "2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.7",
