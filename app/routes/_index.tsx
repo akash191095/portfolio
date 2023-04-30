@@ -15,7 +15,7 @@ export default function Index() {
   const dynamicColor = colorMode === "light" ? "black" : "white";
 
   return (
-    <main className="relative flex min-h-screen min-w-full flex-col px-6 font-sans">
+    <main className="relative mb-32 flex min-h-screen min-w-full flex-col px-6 font-sans">
       <section className="relative flex h-screen w-full flex-col items-center justify-center pb-52">
         <h1 className="mx-5 text-3xl uppercase tracking-widest md:text-5xl lg:text-7xl">
           Akash Agarwal
@@ -133,6 +133,33 @@ export default function Index() {
             </li>
           </ul>
         </VerticalLinedItem>
+      </section>
+      <section className="py-5">
+        <h2 className="pb-5 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
+          Skills
+        </h2>
+        <div className="mx-auto flex max-w-5xl flex-wrap justify-between text-secondary-light dark:text-secondary-dark">
+          <ul className="list-disc">
+            <li className="mx-3">Javascript</li>
+            <li className="mx-3">TypeScript</li>
+            <li className="mx-3">React.js</li>
+          </ul>
+          <ul className="list-disc">
+            <li className="mx-3">Next.js</li>
+            <li className="mx-3">Remix.run</li>
+            <li className="mx-3">Gatsby.js</li>
+          </ul>
+          <ul className="list-disc">
+            <li className="mx-3">Material UI</li>
+            <li className="mx-3">Redux</li>
+            <li className="mx-3">React Hooks</li>
+          </ul>
+          <ul className="list-disc">
+            <li className="mx-3">React Context</li>
+            <li className="mx-3">HTML 5</li>
+            <li className="mx-3">CSS 3</li>
+          </ul>
+        </div>
       </section>
       <div className="fixed right-0 top-0">
         <Button onClick={toggleColorMode} className=" m-2">
