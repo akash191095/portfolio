@@ -138,26 +138,50 @@ export default function Index() {
         <h2 className="pb-12 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
           Skills
         </h2>
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-between text-secondary-light dark:text-secondary-dark">
+        <div className="flex max-w-5xl flex-col items-start px-12 text-xl text-secondary-light dark:text-secondary-dark md:mx-auto md:flex-row md:items-center md:justify-between">
           <ul className="list-disc">
-            <li className="mx-3">Javascript</li>
-            <li className="mx-3">TypeScript</li>
-            <li className="mx-3">React.js</li>
+            <li className="mx-3">
+              <p>Javascript</p>
+            </li>
+            <li className="mx-3">
+              <p>TypeScript</p>
+            </li>
+            <li className="mx-3">
+              <p>React.js</p>
+            </li>
           </ul>
           <ul className="list-disc">
-            <li className="mx-3">Next.js</li>
-            <li className="mx-3">Remix.run</li>
-            <li className="mx-3">Gatsby.js</li>
+            <li className="mx-3">
+              <p>Next.js</p>
+            </li>
+            <li className="mx-3">
+              <p>Remix.run</p>
+            </li>
+            <li className="mx-3">
+              <p>Gatsby.js</p>
+            </li>
           </ul>
           <ul className="list-disc">
-            <li className="mx-3">Material UI</li>
-            <li className="mx-3">Redux</li>
-            <li className="mx-3">React Hooks</li>
+            <li className="mx-3">
+              <p>Material UI</p>
+            </li>
+            <li className="mx-3">
+              <p>Redux</p>
+            </li>
+            <li className="mx-3">
+              <p>React Hooks</p>
+            </li>
           </ul>
           <ul className="list-disc">
-            <li className="mx-3">React Context</li>
-            <li className="mx-3">HTML 5</li>
-            <li className="mx-3">CSS 3</li>
+            <li className="mx-3">
+              <p>React Context</p>
+            </li>
+            <li className="mx-3">
+              <p>HTML 5</p>
+            </li>
+            <li className="mx-3">
+              <p>CSS 3</p>
+            </li>
           </ul>
         </div>
       </section>
