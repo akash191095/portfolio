@@ -17,10 +17,10 @@ export default function Index() {
   return (
     <main className="relative mb-32 flex min-h-screen min-w-full flex-col px-6 font-sans">
       <section className="relative flex h-screen w-full flex-col items-center justify-center pb-52">
-        <h1 className="mx-5 text-3xl uppercase tracking-widest md:text-5xl lg:text-7xl">
+        <h1 className="text-3xl uppercase tracking-widest md:text-5xl lg:text-7xl">
           Akash Agarwal
         </h1>
-        <p className="text-md mb-2 md:text-xl lg:text-2xl">
+        <p className="text-md mb-3 mt-2 md:text-xl lg:text-2xl">
           Senior Front End Developer
         </p>
         <ul className="flex gap-3">
