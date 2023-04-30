@@ -8,7 +8,7 @@ import { Github, Linkedin } from "~/components/icons";
 import { Link } from "@remix-run/react";
 import VerticalLinedItem from "~/components/VerticalLinedItem";
 
-export const meta: V2_MetaFunction = () => [{ title: "Home" }];
+export const meta: V2_MetaFunction = () => [{ title: "Akash Agarwal" }];
 
 export default function Index() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -25,20 +25,20 @@ export default function Index() {
         </p>
         <ul className="flex gap-3">
           <li>
-            <Link to="https://www.linkedin.com/in/akash-fe" target="_black">
+            <Link to="https://www.linkedin.com/in/akash-fe" target="_blank">
               <Linkedin fill={dynamicColor} className="md:h-8 md:w-8" />
             </Link>
           </li>
           <li>
-            <Link to="https://github.com/akash191095" target="_black">
+            <Link to="https://github.com/akash191095" target="_blank">
               <Github fill={dynamicColor} className="md:h-8 md:w-8" />
             </Link>
           </li>
         </ul>
         <ChevronDoubleDownIcon className="absolute top-3/4 h-10 w-10 animate-pulse md:h-12 md:w-12" />
       </section>
-      <section className="py-5">
-        <h2 className="pb-5 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
+      <section className="py-24">
+        <h2 className="pb-12 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
           Experience
         </h2>
         <VerticalLinedItem title="ULA">
@@ -134,8 +134,8 @@ export default function Index() {
           </ul>
         </VerticalLinedItem>
       </section>
-      <section className="py-5">
-        <h2 className="pb-5 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
+      <section className="py-24">
+        <h2 className="pb-12 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
           Skills
         </h2>
         <div className="mx-auto flex max-w-5xl flex-wrap justify-between text-secondary-light dark:text-secondary-dark">
@@ -161,6 +161,19 @@ export default function Index() {
           </ul>
         </div>
       </section>
+
+      <section className="py-24 text-center">
+        <h2 className="pb-12 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
+          Contact Form
+        </h2>
+        <Link
+          to="https://docs.google.com/forms/d/17fecXpY0G64QABPcjp_o8Vsf5DzErFWD6gH-6mJZVGg"
+          target="_blank"
+        >
+          <Button>Link to Google Form</Button>
+        </Link>
+      </section>
+
       <div className="fixed right-0 top-0">
         <Button onClick={toggleColorMode} className=" m-2">
           {colorMode === "light" ? (
