@@ -19,7 +19,7 @@ export default function Index() {
   return (
     <main>
       <header>
-        <h1>All Blogs</h1>
+        <h1>All Posts</h1>
       </header>
       <ul>
         {posts.map((post: any) => (
