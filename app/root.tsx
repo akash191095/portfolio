@@ -15,7 +15,7 @@ import tailwindStylesheetUrl from "~/styles/tailwind.css";
 import { withEmotionCache } from "@emotion/react";
 import { ServerStyleContext, ClientStyleContext } from "./context";
 import { useContext, useEffect, useMemo } from "react";
-
+import ColorModeToggle from "./components/ColorModeToggle";
 interface DocumentProps {
   children: React.ReactNode;
 }
@@ -123,6 +123,7 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           theme={theme}
         >
           <Outlet />
+          <ColorModeToggle />
         </ChakraProvider>
         <ScrollRestoration />
         <Scripts />

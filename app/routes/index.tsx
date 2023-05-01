@@ -1,9 +1,6 @@
 import { Button, useColorMode } from "@chakra-ui/react";
 import type { V2_MetaFunction } from "@remix-run/node";
-import {
-  ChevronDoubleDownIcon,
-  LightBulbIcon,
-} from "@heroicons/react/24/solid";
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { Github, Linkedin } from "~/components/icons";
 import { Link } from "@remix-run/react";
 import VerticalLinedItem from "~/components/VerticalLinedItem";
@@ -11,7 +8,7 @@ import VerticalLinedItem from "~/components/VerticalLinedItem";
 export const meta: V2_MetaFunction = () => [{ title: "Akash Agarwal" }];
 
 export default function Index() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const dynamicColor = colorMode === "light" ? "black" : "white";
 
   return (
@@ -197,16 +194,6 @@ export default function Index() {
           <Button>Link to Google Form</Button>
         </Link>
       </section>
-
-      <div className="fixed right-0 top-0">
-        <Button onClick={toggleColorMode} className=" m-2">
-          {colorMode === "light" ? (
-            <LightBulbIcon className="h-5 w-5" />
-          ) : (
-            <LightBulbIcon className="h-5 w-5" />
-          )}
-        </Button>
-      </div>
     </main>
   );
 }
