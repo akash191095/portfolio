@@ -1,16 +1,17 @@
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { Linkedin, Github } from "~/components/icons";
 import { Link } from "@remix-run/react";
-import { useColorMode } from "@chakra-ui/react";
+import { useBreakpoint, useColorMode } from "@chakra-ui/react";
 
 export default function Hero() {
   const { colorMode } = useColorMode();
+  const breakpoint = useBreakpoint({ ssr: true });
   const dynamicColor = colorMode === "light" ? "black" : "white";
 
   return (
     <section className="relative flex h-screen w-full flex-col items-center justify-center pb-52">
-      <h1 className="text-3xl tracking-widest md:text-5xl lg:text-7xl">
-        Hello! I am{" "}
+      <h1 className="text-center text-3xl tracking-widest md:text-5xl lg:text-7xl">
+        Hello!{breakpoint === "base" ? <br /> : null} I am{" "}
         <span className="text-secondary-light dark:text-secondary-dark">
           {`<Akash />`}
         </span>
