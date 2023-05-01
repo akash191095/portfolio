@@ -1,11 +1,11 @@
 import { Button, useColorMode } from "@chakra-ui/react";
-import type { V2_MetaFunction } from "@remix-run/node";
+import type { MetaFunction, V2_MetaFunction } from "@remix-run/node";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { Github, Linkedin } from "~/components/icons";
 import { Link } from "@remix-run/react";
 import VerticalLinedItem from "~/components/VerticalLinedItem";
 
-export const meta: V2_MetaFunction = () => [{ title: "Akash Agarwal" }];
+export const meta: MetaFunction = () => ({ title: "Akash Agarwal" });
 
 export default function Index() {
   const { colorMode } = useColorMode();
