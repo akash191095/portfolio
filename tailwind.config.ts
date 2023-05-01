@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         secondary: {
-          light: "#0a3827",
+          light: "black",
           DEFAULT: "#63ECBB",
           dark: "#63ECBB",
         },
