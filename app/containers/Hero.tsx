@@ -12,13 +12,11 @@ export default function Hero() {
       <h1 className="text-3xl tracking-widest md:text-5xl lg:text-7xl">
         Hello! I am{" "}
         <span className="text-secondary-light dark:text-secondary-dark">
-          Akash
+          {`<Akash />`}
         </span>
       </h1>
       <h2 className="text-md mb-3 mt-2 md:text-xl lg:text-2xl">
-        A senior{" "}
-        <span className="text-secondary-light dark:text-secondary-dark">{`<FrontEnd />`}</span>{" "}
-        developer
+        A senior front-end developer
       </h2>
       <ul className="flex gap-3">
         <li>
