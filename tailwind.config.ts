@@ -10,9 +10,10 @@ export default {
           DEFAULT: "#63ECBB",
           dark: "#63ECBB",
         },
+        pre: "#232c3c",
       },
     },
   },
   darkMode: ["class", ".chakra-ui-dark"],
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 } satisfies Config;
