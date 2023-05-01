@@ -103,6 +103,11 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <script
+          defer
+          data-domain="portfolio-d578.fly.dev"
+          src="https://plausible.io/js/script.js"
+        />
         <Meta />
         <Links />
         {serverStyleData?.map(({ key, ids, css }) => (

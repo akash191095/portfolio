@@ -1,5 +1,5 @@
 import { Button, useColorMode } from "@chakra-ui/react";
-import type { MetaFunction, V2_MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { Github, Linkedin } from "~/components/icons";
 import { Link } from "@remix-run/react";
