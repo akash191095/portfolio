@@ -1,6 +1,6 @@
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import * as firstPost from "../blog/first-post.mdx";
+import * as run_function_only_once from "../blog/run_function_only_once.mdx";
 
 function postFromModule(mod: any) {
   return {
@@ -10,7 +10,7 @@ function postFromModule(mod: any) {
 }
 
 export async function loader() {
-  return json([postFromModule(firstPost)]);
+  return json([postFromModule(run_function_only_once)]);
 }
 
 export default function Index() {
