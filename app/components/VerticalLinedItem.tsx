@@ -16,9 +16,9 @@ export default function VerticalLinedItem(
       <div className="relative w-full border-l border-secondary-light py-2 dark:border-secondary-dark">
         <div className="absolute left-[-5.5px] top-[0] h-[10px] w-[10px] rounded-full bg-secondary-light dark:bg-secondary-dark" />
         <div className="pl-4">
-          <h5 className="text-lg font-semibold text-secondary-light dark:text-secondary-dark">
+          <p className="text-lg font-semibold text-secondary-light dark:text-secondary-dark">
             {title}
-          </h5>
+          </p>
           <div className="text-justify">{children}</div>
         </div>
       </div>

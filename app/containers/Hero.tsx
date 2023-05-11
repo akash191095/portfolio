@@ -22,12 +22,22 @@ export default function Hero() {
       <ul className="flex gap-3">
         <li>
           <Link to="https://www.linkedin.com/in/akash-fe" target="_blank">
-            <Linkedin fill={dynamicColor} className="md:h-8 md:w-8" />
+            <Linkedin
+              fill={dynamicColor}
+              className="md:h-8 md:w-8"
+              // @ts-expect-error: invalid title
+              title="linkedin"
+            />
           </Link>
         </li>
         <li>
           <Link to="https://github.com/akash191095" target="_blank">
-            <Github fill={dynamicColor} className="md:h-8 md:w-8" />
+            <Github
+              fill={dynamicColor}
+              className="md:h-8 md:w-8"
+              // @ts-expect-error: invalid title
+              title="github"
+            />
           </Link>
         </li>
       </ul>
