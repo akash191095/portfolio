@@ -5,8 +5,8 @@ export default function ColorModeToggle() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <div className="fixed right-0 top-0">
-      <Button onClick={toggleColorMode} className="m-2">
+    <div>
+      <Button onClick={toggleColorMode}>
         {colorMode === "light" ? (
           <LightBulbIcon className="h-5 w-5" />
         ) : (

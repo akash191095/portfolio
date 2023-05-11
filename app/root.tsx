@@ -15,7 +15,7 @@ import tailwindStylesheetUrl from "~/styles/tailwind.css";
 import { withEmotionCache } from "@emotion/react";
 import { ServerStyleContext, ClientStyleContext } from "./context";
 import { useContext, useEffect, useMemo } from "react";
-import ColorModeToggle from "./components/ColorModeToggle";
+import Nav from "./components/Nav";
 interface DocumentProps {
   children: React.ReactNode;
 }
@@ -127,8 +127,10 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           colorModeManager={cookieStorageManagerSSR(cookies)}
           theme={theme}
         >
-          <Outlet />
-          <ColorModeToggle />
+          <Nav />
+          <div className="pt-[56px]">
+            <Outlet />
+          </div>
         </ChakraProvider>
         <ScrollRestoration />
         <Scripts />
