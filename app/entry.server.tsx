@@ -102,6 +102,10 @@ const handleBrowserRequest = (
           reactBody.pipe(bodyWithStyles);
 
           responseHeaders.set("Content-Type", "text/html");
+          responseHeaders.set(
+            "Cache-Control",
+            "s-maxage=5, stale-while-revalidate=86400"
+          );
 
           resolve(
             new Response(bodyWithStyles, {
