@@ -10,7 +10,11 @@ function postFromModule(mod: any) {
 }
 
 export async function loader() {
-  return json([postFromModule(run_function_only_once)]);
+  return json([postFromModule(run_function_only_once)], {
+    headers: {
+      "Cache-Control": "s-maxage=5, stale-while-revalidate=86400",
+    },
+  });
 }
 
 export default function Index() {

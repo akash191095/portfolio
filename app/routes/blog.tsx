@@ -6,6 +6,14 @@ export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
 };
 
+export async function loader() {
+  return new Response(undefined, {
+    headers: {
+      "Cache-Control": "s-maxage=60, stale-while-revalidate=2678400",
+    },
+  });
+}
+
 export default function Blog() {
   return (
     <div className="flex  justify-center">

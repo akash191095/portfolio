@@ -7,6 +7,14 @@ import Exprience from "~/containers/Exprience";
 
 export const meta: MetaFunction = () => ({ title: "Akash Agarwal" });
 
+export async function loader() {
+  return new Response(undefined, {
+    headers: {
+      "Cache-Control": "s-maxage=5, stale-while-revalidate=86400",
+    },
+  });
+}
+
 export default function Index() {
   return (
     <main className="relative mb-32 flex min-h-screen min-w-full flex-col px-6 font-sans">
