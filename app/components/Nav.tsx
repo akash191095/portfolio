@@ -16,7 +16,7 @@ export default function Nav() {
           </Link>
         </li>
         <li>
-          <Link to="/blog">
+          <Link to="/blog" prefetch="render">
             <Button variant="outline">
               <RectangleStackIcon width={18} className="mr-2" />
               Blog
