@@ -1,3 +1,4 @@
+import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import * as run_function_only_once from "../blog/run_function_only_once.mdx";
@@ -16,6 +17,8 @@ export async function loader() {
     },
   });
 }
+
+export const meta: MetaFunction = () => ({ title: "Blog | Akash Agarwal" });
 
 export default function Index() {
   const posts = useLoaderData();
