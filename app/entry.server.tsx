@@ -104,7 +104,7 @@ const handleBrowserRequest = (
           responseHeaders.set("Content-Type", "text/html");
           responseHeaders.set(
             "Cache-Control",
-            "s-maxage=5, stale-while-revalidate=86400"
+            "s-maxage=3600, stale-while-revalidate=82800"
           );
 
           resolve(

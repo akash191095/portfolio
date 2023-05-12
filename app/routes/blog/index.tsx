@@ -13,7 +13,7 @@ function postFromModule(mod: any) {
 export async function loader() {
   return json([postFromModule(run_function_only_once)], {
     headers: {
-      "Cache-Control": "s-maxage=5, stale-while-revalidate=86400",
+      "Cache-Control": "s-maxage=60, stale-while-revalidate=2678400",
     },
   });
 }

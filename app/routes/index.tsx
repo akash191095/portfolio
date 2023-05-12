@@ -10,7 +10,7 @@ export const meta: MetaFunction = () => ({ title: "Akash Agarwal" });
 export async function loader() {
   return new Response(undefined, {
     headers: {
-      "Cache-Control": "s-maxage=5, stale-while-revalidate=86400",
+      "Cache-Control": "s-maxage=3600, stale-while-revalidate=82800",
     },
   });
 }
