@@ -1,7 +1,8 @@
-import { Button } from "@chakra-ui/react";
 import { HomeIcon, RectangleStackIcon } from "@heroicons/react/24/solid";
-import { Link } from "@remix-run/react";
+
+import { Button } from "@chakra-ui/react";
 import ColorModeToggle from "./ColorModeToggle";
+import { Link } from "@remix-run/react";
 
 export default function Nav() {
   return (

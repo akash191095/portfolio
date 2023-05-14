@@ -1,9 +1,9 @@
-import { Button } from "@chakra-ui/react";
-import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
-import Hero from "~/containers/Hero";
 import AboutMe from "../containers/AboutMe";
+import { Button } from "@chakra-ui/react";
 import Exprience from "~/containers/Exprience";
+import Hero from "~/containers/Hero";
+import { Link } from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => ({ title: "Akash Agarwal" });
 

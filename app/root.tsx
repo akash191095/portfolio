@@ -1,5 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { ChakraProvider, cookieStorageManagerSSR } from "@chakra-ui/react";
+import { ClientStyleContext, ServerStyleContext } from "./context";
 import {
   Links,
   LiveReload,
@@ -9,14 +9,15 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import { ChakraProvider, cookieStorageManagerSSR } from "@chakra-ui/react";
-import theme from "./theme";
-import tailwindStylesheetUrl from "~/styles/tailwind.css";
-import { withEmotionCache } from "@emotion/react";
-import { ServerStyleContext, ClientStyleContext } from "./context";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import { useContext, useEffect, useMemo } from "react";
+
 import Nav from "./components/Nav";
+import { cssBundleHref } from "@remix-run/css-bundle";
 import remixImageStyles from "remix-image/remix-image.css";
+import tailwindStylesheetUrl from "~/styles/tailwind.css";
+import theme from "./theme";
+import { withEmotionCache } from "@emotion/react";
 
 interface DocumentProps {
   children: React.ReactNode;
@@ -72,7 +73,7 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
     });
     // reset cache to reapply global styles
     clientStyleData?.reset();
-  }, []);
+  }, [clientStyleData, emotionCache.sheet]);
 
   let cookies = useLoaderData();
 
@@ -88,6 +89,7 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
     let color = getColorMode(cookies);
 
     if (!color && DEFAULT_COLOR_MODE) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       cookies += ` ${CHAKRA_COOKIE_COLOR_KEY}=${DEFAULT_COLOR_MODE}`;
       color = DEFAULT_COLOR_MODE;
     }

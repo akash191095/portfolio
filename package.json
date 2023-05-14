@@ -30,7 +30,8 @@
   "eslintIgnore": [
     "/node_modules",
     "/build",
-    "/public/build"
+    "/public/build",
+    "/app/components/icons/*"
   ],
   "watch": {
     "icons": {

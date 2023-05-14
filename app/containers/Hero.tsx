@@ -1,7 +1,8 @@
-import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
-import { Linkedin, Github } from "~/components/icons";
-import { Link } from "@remix-run/react";
+import { Github, Linkedin } from "~/components/icons";
 import { useBreakpoint, useColorMode } from "@chakra-ui/react";
+
+import { ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
+import { Link } from "@remix-run/react";
 
 export default function Hero() {
   const { colorMode } = useColorMode();

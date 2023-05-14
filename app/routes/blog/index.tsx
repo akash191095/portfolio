@@ -1,7 +1,9 @@
+import * as run_function_only_once from "../blog/run_function_only_once.mdx";
+
+import { Link, useLoaderData } from "@remix-run/react";
+
 import type { MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
-import * as run_function_only_once from "../blog/run_function_only_once.mdx";
 
 function postFromModule(mod: any) {
   return {

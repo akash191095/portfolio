@@ -1,11 +1,12 @@
+import {
+  MemoryCache,
+  fetchResolver,
+  fsResolver,
+  imageLoader,
+} from "remix-image/server";
+
 import type { LoaderFunction } from "@remix-run/node";
 import type { Resolver } from "remix-image/server";
-import {
-  imageLoader,
-  MemoryCache,
-  fsResolver,
-  fetchResolver,
-} from "remix-image/server";
 
 export const myResolver: Resolver = async (asset, url, options, basePath) => {
   if (asset.startsWith("/") && (asset.length === 1 || asset[1] !== "/")) {

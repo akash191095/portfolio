@@ -1,7 +1,8 @@
-import createEmotionCache from "@emotion/cache";
+import { StrictMode, startTransition } from "react";
+
 import { CacheProvider } from "@emotion/react";
 import { RemixBrowser } from "@remix-run/react";
-import { startTransition, StrictMode } from "react";
+import createEmotionCache from "@emotion/cache";
 import { hydrateRoot } from "react-dom/client";
 
 const hydrate = () => {
