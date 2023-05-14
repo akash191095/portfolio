@@ -1,5 +1,5 @@
-import MoolLogo from "../icons/mool.svg";
-import MoolLogoLight from "../icons/mool-light.svg";
+import MoolLogo from "../icons/mool.png";
+import MoolLogoLight from "../icons/mool-light.png";
 import TKTLogo from "../icons/knotty.png";
 import UlaLogo from "../icons/ula.png";
 import VerticalLinedItem from "~/components/VerticalLinedItem";
