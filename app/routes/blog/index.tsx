@@ -24,14 +24,16 @@ export default function Index() {
   const posts = useLoaderData();
 
   return (
-    <main>
+    <main data-testId="blog">
       <header>
         <h1>All Posts</h1>
       </header>
       <ul>
         {posts.map((post: any) => (
           <li key={post.slug}>
-            <Link to={post.slug}>{post.title}</Link>
+            <Link to={post.slug} data-testId="blog-item">
+              {post.title}
+            </Link>
             {post.description ? (
               <p className="m-0">{post.description}</p>
             ) : null}
