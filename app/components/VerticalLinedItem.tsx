@@ -1,3 +1,5 @@
+import { Image } from "remix-image";
+
 type Props = {
   title: string;
   logo: any;
@@ -11,9 +13,18 @@ export default function VerticalLinedItem(
   return (
     <div className="mx-auto flex max-w-5xl items-start justify-center">
       {logo ? (
-        <img
+        <Image
+          responsive={[
+            {
+              size: { width: 64, height: 64 },
+            },
+          ]}
+          dprVariants={[1, 2, 3]}
           src={logo}
           alt={logoAlt}
+          options={{ fit: "contain" }}
+          height={64}
+          width={64}
           className="h-16 w-16 object-contain pr-4 pt-4"
         />
       ) : null}
