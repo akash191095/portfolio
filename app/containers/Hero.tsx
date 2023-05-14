@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       className="relative flex h-screen w-full flex-col items-center justify-center pb-52"
-      data-testId="hero"
+      data-testid="hero"
     >
       <h1 className="text-center text-3xl tracking-widest md:text-5xl lg:text-7xl">
         Hello!{breakpoint === "base" ? <br /> : null} I am{" "}

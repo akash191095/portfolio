@@ -26,14 +26,14 @@ export default function Index() {
   const posts = useLoaderData();
 
   return (
-    <main data-testId="blog">
+    <main data-testid="blog">
       <header>
         <h1>All Posts</h1>
       </header>
       <ul>
         {posts.map((post: any) => (
           <li key={post.slug}>
-            <Link to={post.slug} data-testId="blog-item">
+            <Link to={post.slug} data-testid="blog-item">
               {post.title}
             </Link>
             {post.description ? (
