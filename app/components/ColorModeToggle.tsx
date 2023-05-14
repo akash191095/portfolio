@@ -6,7 +6,11 @@ export default function ColorModeToggle() {
 
   return (
     <div>
-      <Button onClick={toggleColorMode} aria-label="toggle theme">
+      <Button
+        onClick={toggleColorMode}
+        aria-label="toggle theme"
+        data-testId="theme-toggle"
+      >
         {colorMode === "light" ? (
           <LightBulbIcon className="h-5 w-5" />
         ) : (
