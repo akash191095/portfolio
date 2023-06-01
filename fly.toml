@@ -1,51 +1,50 @@
-# fly.toml app configuration file generated for portfolio-d578 on 2023-06-01T22:49:46+05:30
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
 app = "portfolio-d578"
-primary_region = "sin"
 kill_signal = "SIGINT"
-kill_timeout = "5s"
+kill_timeout = 5
+processes = [ ]
 
 [experimental]
-  cmd = ["start.sh"]
-  entrypoint = ["sh"]
-  auto_rollback = true
+allowed_public_ports = [ ]
+auto_rollback = true
+cmd = "start.sh"
+entrypoint = "sh"
 
-[[mounts]]
-  source = "data"
-  destination = "/data"
+[mounts]
+source = "data"
+destination = "/data"
 
 [[services]]
-  protocol = "tcp"
-  internal_port = 8_080
-  processes = ["app"]
+internal_port = 8_080
+processes = [ "app" ]
+protocol = "tcp"
+script_checks = [ ]
 
-  [[services.ports]]
-    port = 80
-    handlers = ["http"]
-    force_https = true
-
-  [[services.ports]]
-    port = 443
-    handlers = ["tls", "http"]
   [services.concurrency]
-    type = "connections"
-    hard_limit = 25
-    soft_limit = 20
+  hard_limit = 25
+  soft_limit = 20
+  type = "connections"
+
+  [[services.ports]]
+  handlers = [ "http" ]
+  port = 80
+  force_https = true
+
+  [[services.ports]]
+  handlers = [ "tls", "http" ]
+  port = 443
 
   [[services.tcp_checks]]
-    interval = "15s"
-    timeout = "2s"
-    grace_period = "1s"
-    restart_limit = 0
+  grace_period = "1s"
+  interval = "15s"
+  restart_limit = 0
+  timeout = "2s"
 
   [[services.http_checks]]
-    interval = "10s"
-    timeout = "2s"
-    grace_period = "5s"
-    restart_limit = 0
-    method = "get"
-    path = "/healthcheck"
-    protocol = "http"
+  interval = "10s"
+  grace_period = "5s"
+  method = "get"
+  path = "/healthcheck"
+  protocol = "http"
+  timeout = "2s"
+  tls_skip_verify = false
+  headers = { }
