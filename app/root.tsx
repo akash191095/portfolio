@@ -107,9 +107,9 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           content="Portfolio and blog of Senior Front-end Engineer Akash Agarwal"
         />
         <script
-          defer
-          data-domain="portfolio-d578.fly.dev"
-          src="https://plausible.io/js/script.js"
+          async
+          src="https://analytics-web.onrender.com/script.js"
+          data-website-id="486d2b2b-a732-4be7-a06e-d943abb48989"
         />
         <Meta />
         <Links />
