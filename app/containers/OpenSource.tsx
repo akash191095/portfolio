@@ -2,7 +2,6 @@ import { Link } from "@remix-run/react";
 import { useLocales } from "~/lib/LocaleProvider";
 
 export default function OpenSource({ prs }: { prs: any[] }) {
-  console.log({ prs });
   const locales = useLocales();
 
   return (
