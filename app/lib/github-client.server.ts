@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 export const client = new GraphQLClient("https://api.github.com/graphql", {
   headers: {
-    Authorization: `bearer ${process.env.GITHUB_API_KEY}`,
+    Authorization: `bearer ${process.env.PERSONAL_GITHUB_API_KEY}`,
   },
 });
 

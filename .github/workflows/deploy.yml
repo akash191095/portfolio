@@ -109,6 +109,7 @@ jobs:
           wait-on: http://localhost:8811
         env:
           PORT: 8811
+          PERSONAL_GITHUB_API_KEY: ${{ secrets.PERSONAL_GITHUB_API_KEY }}
 
   deploy:
     name: 🚀 Deploy
