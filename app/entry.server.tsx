@@ -42,10 +42,15 @@ const handleBotRequest = (
   new Promise((resolve, reject) => {
     let didError = false;
     const emotionCache = createEmotionCache({ key: "css" });
-
+    const acceptLanguage = request.headers.get("accept-language");
+    const locales = parseAcceptLanguage(acceptLanguage, {
+      validate: Intl.DateTimeFormat.supportedLocalesOf,
+    });
     const { pipe, abort } = renderToPipeableStream(
       <EmotionCacheProvider value={emotionCache}>
-        <RemixServer context={remixContext} url={request.url} />
+        <LocaleContextProvider locales={locales}>
+          <RemixServer context={remixContext} url={request.url} />
+        </LocaleContextProvider>
       </EmotionCacheProvider>,
       {
         onAllReady: () => {
