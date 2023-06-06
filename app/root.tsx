@@ -13,6 +13,7 @@ import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import { useContext, useEffect, useMemo } from "react";
 
 import Nav from "./components/Nav";
+import { PRODUCTION_URL } from "./constants";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import remixImageStyles from "remix-image/remix-image.css";
 import tailwindStylesheetUrl from "~/styles/tailwind.css";
@@ -34,7 +35,10 @@ export let links: LinksFunction = () => {
 export const loader: LoaderFunction = async ({ request }) => {
   // first time users will not have any cookies and you may not return
   // undefined here, hence ?? is necessary
-  return request.headers.get("cookie") ?? "";
+  return {
+    cookies: request.headers.get("cookie") ?? "",
+    ENDPOINT_URL: process.env.ENDPOINT_URL ?? "localhost",
+  };
 };
 
 function getColorMode(cookies: string) {
@@ -69,7 +73,7 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
     clientStyleData?.reset();
   }, [clientStyleData, emotionCache.sheet]);
 
-  let cookies = useLoaderData();
+  let { cookies, ENDPOINT_URL } = useLoaderData();
 
   // the client get the cookies from the document
   // because when we do a client routing, the loader can have stored an outdated value
@@ -106,11 +110,13 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           name="description"
           content="Portfolio and blog of Senior Front-end Engineer Akash Agarwal"
         />
-        <script
-          async
-          src="https://analytics-web.onrender.com/script.js"
-          data-website-id="486d2b2b-a732-4be7-a06e-d943abb48989"
-        />
+        {ENDPOINT_URL === PRODUCTION_URL ? (
+          <script
+            async
+            src="https://analytics-web.onrender.com/script.js"
+            data-website-id="486d2b2b-a732-4be7-a06e-d943abb48989"
+          />
+        ) : null}
         <Meta />
         <Links />
         {serverStyleData?.map(({ key, ids, css }) => (
