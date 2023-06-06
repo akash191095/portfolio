@@ -19,14 +19,14 @@ export default function OpenSource({ prs }: { prs: any[] }) {
 
         return (
           <div key={pullRequest.id} className="mx-auto mb-6 max-w-5xl">
-            <h5 className="text-xl font-semibold uppercase text-secondary-light dark:text-secondary-dark">
+            <h3 className="text-xl font-semibold uppercase text-secondary-light dark:text-secondary-dark">
               <Link
                 to={pullRequest.repository.homepageUrl}
                 className="hover:text-blue-300"
               >
                 {pullRequest.repository.name} : {formattedDate}
               </Link>
-            </h5>
+            </h3>
             <p className="">{pullRequest.repository.description}</p>
             <p className="hover:text-blue-300">
               <Link to={pullRequest.permalink}>
