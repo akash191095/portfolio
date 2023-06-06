@@ -113,7 +113,7 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
         {ENDPOINT_URL === PRODUCTION_URL ? (
           <script
             async
-            src="https://analytics-web.onrender.com/script.js"
+            src="https://umami-n7x73qvkz-akash191095.vercel.app/script.js"
             data-website-id="486d2b2b-a732-4be7-a06e-d943abb48989"
           />
         ) : null}
