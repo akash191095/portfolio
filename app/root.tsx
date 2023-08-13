@@ -1,3 +1,4 @@
+import * as gtag from "~/utils/gtags.client";
 import { ChakraProvider, cookieStorageManagerSSR } from "@chakra-ui/react";
 import { ClientStyleContext, ServerStyleContext } from "./context";
 import {
@@ -8,12 +9,12 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import { useContext, useEffect, useMemo } from "react";
 
 import Nav from "./components/Nav";
-import { PRODUCTION_URL } from "./constants";
 import { cssBundleHref } from "@remix-run/css-bundle";
 import remixImageStyles from "remix-image/remix-image.css";
 import tailwindStylesheetUrl from "~/styles/tailwind.css";
@@ -37,7 +38,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   // undefined here, hence ?? is necessary
   return {
     cookies: request.headers.get("cookie") ?? "",
-    ENDPOINT_URL: process.env.ENDPOINT_URL ?? "localhost",
+    gaTrackingId: process.env.GA_TRACKING_ID,
   };
 };
 
@@ -58,6 +59,7 @@ const CHAKRA_COOKIE_COLOR_KEY = "chakra-ui-color-mode";
 const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
   const serverStyleData = useContext(ServerStyleContext);
   const clientStyleData = useContext(ClientStyleContext);
+  const location = useLocation();
 
   // Only executed on client
   useEffect(() => {
@@ -73,7 +75,13 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
     clientStyleData?.reset();
   }, [clientStyleData, emotionCache.sheet]);
 
-  let { cookies, ENDPOINT_URL } = useLoaderData();
+  let { cookies, gaTrackingId } = useLoaderData();
+
+  useEffect(() => {
+    if (gaTrackingId?.length) {
+      gtag.pageview(location.pathname, gaTrackingId);
+    }
+  }, [location, gaTrackingId]);
 
   // the client get the cookies from the document
   // because when we do a client routing, the loader can have stored an outdated value
@@ -110,13 +118,6 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           name="description"
           content="Portfolio and blog of Senior Front-end Engineer Akash Agarwal"
         />
-        {ENDPOINT_URL === PRODUCTION_URL ? (
-          <script
-            async
-            src="https://umami-n7x73qvkz-akash191095.vercel.app/script.js"
-            data-website-id="486d2b2b-a732-4be7-a06e-d943abb48989"
-          />
-        ) : null}
         <Meta />
         <Links />
         {serverStyleData?.map(({ key, ids, css }) => (
@@ -132,6 +133,29 @@ const App = withEmotionCache(({ children }: DocumentProps, emotionCache) => {
           className: `chakra-ui-${colorMode}`,
         })}
       >
+        {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+            />
+            <script
+              async
+              id="gtag-init"
+              dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${gaTrackingId}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+              }}
+            />
+          </>
+        )}
         <ChakraProvider
           colorModeManager={cookieStorageManagerSSR(cookies)}
           theme={theme}
