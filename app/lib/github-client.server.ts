@@ -10,25 +10,22 @@ export const getListOfPRs = async () => {
   const query = gql`
     {
       viewer {
-        contributionsCollection {
-          pullRequestContributions(first: 10) {
-            edges {
-              node {
-                pullRequest {
-                  id
-                  title
-                  permalink
-                  state
-                  createdAt
-                  repository {
-                    name
-                    description
-                    homepageUrl
-                  }
-                  number
-                }
-              }
+        pullRequests(
+          first: 100
+          orderBy: { field: UPDATED_AT, direction: DESC }
+        ) {
+          nodes {
+            id
+            title
+            permalink
+            state
+            createdAt
+            repository {
+              name
+              description
+              homepageUrl
             }
+            number
           }
         }
       }
@@ -37,9 +34,7 @@ export const getListOfPRs = async () => {
 
   const {
     viewer: {
-      contributionsCollection: {
-        pullRequestContributions: { edges: data },
-      },
+      pullRequests: { nodes: data },
     },
   }: any = await client.request(query);
 

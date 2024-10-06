@@ -9,7 +9,7 @@ export default function OpenSource({ prs }: { prs: any[] }) {
       <h2 className="pb-12 text-center text-2xl font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark">
         Recent Open Source Contributions
       </h2>
-      {prs.map(({ node: { pullRequest } }) => {
+      {prs.map((pullRequest) => {
         const formattedDate = new Intl.DateTimeFormat(locales, {
           year: "numeric",
           month: "short",
